@@ -10,5 +10,4 @@ const formatTime = (time) => {
     const hundresths = time % 100
 
     return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}:${hundresths.toString().padStart(2, '0')}`
-
 }
