@@ -3,11 +3,12 @@ const markslist = document.getElementById("marks-list")
 let intervalid = 0
 let timer = 0
 let marks = []
-const formattimerr = (timerr) => {
-    const hours = Math.floor(timerr/360000)
-    const minutes = Math.floor(timerr/360000) / 6000
-    const seconds = Math.floor(timerr/6000) / 100
-    const hundresths = timerr % 100
+
+const formattimerr = (timer) => {
+    const hours = Math.floor(timer/360000)
+    const minutes = Math.floor((timer % 360000) / 6000)
+    const seconds = Math.floor((timer % 6000) / 100)
+    const hundresths = timer % 100
 
     return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}:${hundresths.toString().padStart(2, '0')}`
 }
@@ -23,6 +24,11 @@ const toggletimer = () => {
             timer += 1
             settimer(timer)
         }, 10)
+        button.setAttribute("action", "pause")
+        button.innerHTML = "<i class="fa-solid fa-pause"></i>"
+    } else if(action == 'pause'){
+        button.setAttribute("action","continue")
+        button.innerHTML = "<i class="fa-solid fa-play"></i>"
     }
 }
 
