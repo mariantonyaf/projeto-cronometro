@@ -35,3 +35,5 @@ const toggletimer = () => {
 const settimer = (timerr) => {
     timerEl.innerText = formattimerr(timer)
 }
+
+document.getElementById("power").addEventListener("click", toggletimer)
